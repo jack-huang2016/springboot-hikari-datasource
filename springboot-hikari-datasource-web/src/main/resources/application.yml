@@ -1,0 +1,27 @@
+server:
+  servlet:
+    context-path: /hikari-datasource
+
+spring:
+  datasource:
+    #\u4E3B\u6570\u636E\u6E90\uFF0C\u6B64\u914D\u7F6E\u662F\u81EA\u5B9A\u4E49\u7684\u914D\u7F6E\uFF0C\u4E0D\u662Fspringboot\u81EA\u52A8\u88C5\u914D\u7684\u5C5E\u6027
+    ds1:
+      pool-name: PT_DEV_DataSource
+      jdbc-url: jdbc:oracle:thin:@172.17.209.243:1521:bidbportal
+      username: u_db_pt
+      password: u_db_pt
+      driver-class-name: oracle.jdbc.OracleDriver
+      type: com.zaxxer.hikari.HikariDataSource
+      connection-timeout: 30000
+      idle-timeout: 180000
+      max-lifetime: 1800000
+      maximum-pool-size: 10
+      minimum-idle: 5
+      auto-commit: true
+      connection-test-query: SELECT 1 FROM DUAL
+      #\u662F\u5426\u81EA\u5B9A\u4E49\u914D\u7F6E\uFF0C\u4E3Atrue\u65F6\u4E0B\u9762\u4E24\u4E2A\u53C2\u6570\u624D\u751F\u6548
+      cachePrepStmts: true
+      #\u8FDE\u63A5\u6C60\u5927\u5C0F\u9ED8\u8BA425\uFF0C\u5B98\u65B9\u63A8\u8350250-500
+      prepStmtCacheSize: 250
+      #\u5355\u6761\u8BED\u53E5\u6700\u5927\u957F\u5EA6\u9ED8\u8BA4256\uFF0C\u5B98\u65B9\u63A8\u83502048
+      prepStmtCacheSqlLimit: 2048
